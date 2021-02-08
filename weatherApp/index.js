@@ -3,6 +3,8 @@ window.addEventListener('load', () => {
   let lat;
 
   let temperatureDegree = document.querySelector('.temperature-degree');
+  let temperatureTimezone = document.querySelector('.location-timezone');
+  let temperatureDescription = document.querySelector('.temperature-description');
   
   console.log(navigator.geolocation);
 
@@ -18,16 +20,18 @@ window.addEventListener('load', () => {
 
       fetch(api)
       .then(response => {
-        console.log(response);
+        console.log('response', response);
         return response.json();
       })
       .then(data => {
         
         const { temp } = data.main;
         temperatureDegree.textContent = temp;
+        temperatureDescription.textContent = data.weather[0].main;
         console.log(temp);
 
         console.log('data', data);
+        return data;
       })
 
     })
