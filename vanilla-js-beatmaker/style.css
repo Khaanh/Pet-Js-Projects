@@ -73,7 +73,7 @@ header p {
 
 .btn-holder button {
   padding: 10px 14px;
-  margin: 4px 8px;
+  margin: 8px 12px;
   font-size: 20px;
   text-align: left;
   border-radius: 8px;
@@ -113,6 +113,10 @@ header p {
   min-width: 180px;
 }
 
+.record.is-active:after {
+  animation: 1.5s linear 0.1s infinite role;
+}
+
 .record:active {
   border-bottom: 2px solid #e74c3c;
 }
@@ -121,19 +125,27 @@ header p {
   background-image: url(./img/ico-music-record.png);
 }
 
-.stop-record {
+.pause {
   border: 2px solid #7f8c8d;
   border-bottom: 6px solid #7f8c8d;
   min-width: 190px;
 }
 
-.stop-record:after {
+.pause:active {
+  border-bottom: 2px solid #7f8c8d;
+}
+
+.pause:after {
   background-image: url(./img/ico-pause-record.png);
 }
 
 .clear {
   border: 2px solid #34495e;
   border-bottom: 6px solid #34495e;
+}
+
+.clear:active {
+  border-bottom: 2px solid #34495e;
 }
 
 .btn-holder .clear:after {
@@ -154,10 +166,21 @@ header p {
   border-bottom: 2px solid #2ecc71;
 }
 
-.play[disabled] {
+button[disabled] {
   opacity: 0.8;
   pointer-events: none;
+}
+
+.play[disabled] {
   border-bottom: 2px solid #2ecc71;
+}
+
+.pause[disabled] {
+  border-bottom: 2px solid #7f8c8d;
+}
+
+.clear[disabled] {
+  border-bottom: 2px solid #34495e;
 }
 
 @keyframes jump {
@@ -173,5 +196,17 @@ header p {
   100% {
     bottom: 0%;
     left: 80%;
+  }
+}
+
+@keyframes role {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
