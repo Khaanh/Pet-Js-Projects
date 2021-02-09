@@ -3,6 +3,7 @@ window.addEventListener('load', ()=> {
   const pads = document.querySelectorAll('.pads div');
   const visaul = document.querySelector('.visual');
   const playAgain = document.querySelector('.play');
+
   const colors = [
     "#2ecc71",
     "#d36060",
@@ -11,18 +12,16 @@ window.addEventListener('load', ()=> {
     "#606bd3",
     "#60c2d3"
   ];
-
-  let list = [];
-
+  let recordList = [];
 
   pads.forEach((pad, index) => {
     pad.addEventListener('click', ()=> {
       sounds[index].currentTime = 0;
       sounds[index].play();
-      list.push(sounds[index]);
+      recordList.push(sounds[index]);
       createBubble(index);
 
-      console.log(list);
+      console.log(recordList);
     })
 
     const createBubble = (index)=> {
@@ -34,16 +33,17 @@ window.addEventListener('load', ()=> {
         visaul.removeChild(this)
       });
     }
-  })
+  });
 
   playAgain.addEventListener('click', ()=> {
-    let i = 0;
-
-    while (i < list.length) {
-      console.log(list[i]);
-      list[i].play();
-      i++;
-    }
+    playList(recordList);
   });
-  
-})
+
+  function playList(list) {
+    for (let i = 0; i < list.length; i++) {
+      setTimeout(()=> {
+        list[i].play();
+      }, 1000 * i);
+    }
+  };
+});
