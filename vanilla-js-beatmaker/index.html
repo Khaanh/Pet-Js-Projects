@@ -13,7 +13,16 @@
       <header>
         <h1>Tap Music</h1>
         <p>Create sounds with just one tap</p>
-        <button class="play">Play again</button>
+        <div class="btn-holder">
+          <div class="btn-col">
+            <button class="record" id="js-record">Start record</button>
+            <button class="stop-record" id="js-stopRecord">Pause record</button>
+          </div>
+          <div class="btn-col">
+            <button class="play" id="js-play" disabled>Play</button>
+            <button class="clear" id="js-clearList">Clear</button>
+          </div>
+        </div>
       </header>
       <div class="visual"></div>
       <div class="pads">
