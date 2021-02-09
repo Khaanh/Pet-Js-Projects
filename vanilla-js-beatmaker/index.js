@@ -86,3 +86,8 @@
     btnRecord.classList.remove('is-active');
     btnRecord.addEventListener('click', recordBeat);
   }
+
+  window.addEventListener('load', ()=> {
+    let w = window.innerWidth;
+    alert(w);
+  })
