@@ -30,12 +30,19 @@ header p {
   width: 100%;
   display: flex;
 }
-.pads > div {
+.pads > button {
   height: 120px;
   width: 100px;
   flex: 1;
   cursor: pointer;
+  border: none;
+  transition: 0.1s ease;
 }
+
+.pads > button:focus {
+  opacity: 0.7;
+}
+
 .pad1 {
   background: #2ecc71;
 }
