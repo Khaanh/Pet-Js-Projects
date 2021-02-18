@@ -5,6 +5,7 @@ const btnPlay = document.querySelector('#js-play');
 const btnRecord = document.querySelector('#js-record');
 const btnPause = document.querySelector('#js-pauseRecord');
 const btnReset = document.querySelector('#js-reset');
+const indicator = document.querySelector('#js-indicator');
 const colors = ['#2ecc71', '#d36060', '#c060d3', '#d3d160', '#606bd3', '#60c2d3'];
 let recordList = [];
 
@@ -54,18 +55,11 @@ function recordBeat() {
 			sounds[index].currentTime = 0;
 			sounds[index].play();
 			recordList.push(sounds[index]);
+
+			addMark(pad)
 			createBubble(index);
 		});
 	});
-	// const createBubble = (index) => {
-	//   const bubble = document.createElement('div');
-	//   visaul.appendChild(bubble);
-	//   bubble.style.backgroundColor = colors[index];
-	//   bubble.style.animation = 'jump 1s ease';
-	//   bubble.addEventListener('animationend', function () {
-	//     visaul.removeChild(this);
-	//   });
-	// };
 }
 
 function pauseRecord() {
@@ -83,4 +77,12 @@ function resetAll() {
 
 	btnRecord.classList.remove('is-active');
 	btnRecord.addEventListener('click', recordBeat);
+}
+
+function addMark(marker) {
+	let colorMark = marker.getAttribute('data-color');
+	let label = document.createElement('span');
+
+	label.style.backgroundColor = `${colorMark}`;
+	indicator.appendChild(label);
 }
