@@ -77,12 +77,29 @@ function resetAll() {
 
 	btnRecord.classList.remove('is-active');
 	btnRecord.addEventListener('click', recordBeat);
+
+	removeMark();
 }
 
 function addMark(marker) {
 	let colorMark = marker.getAttribute('data-color');
 	let label = document.createElement('span');
+	
+	indicator.appendChild(label)
+	label.style.cssText = `background-color: ${colorMark}; opacity: 1`;
+}
 
-	label.style.backgroundColor = `${colorMark}`;
-	indicator.appendChild(label);
+function removeMark() {
+	const markers = indicator.querySelectorAll('span');
+
+	markers.forEach(function(mark, index) {
+		
+		setTimeout(() => {
+			mark.style.cssText = 'transform: translate(100%, 0); opacity: 0';
+
+			setTimeout(() => {
+				mark.remove();
+			}, 700)
+		}, 100 * index)
+	})
 }
