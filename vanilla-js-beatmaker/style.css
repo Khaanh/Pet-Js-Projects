@@ -28,7 +28,7 @@ header p {
 .indicator {
   width: 340px;
   height: 14px;
-  border: 1px solid red;
+  border: 1px solid #E03B8B;
   border-radius: 6px;
   display: flex;
   overflow: hidden;
@@ -37,8 +37,12 @@ header p {
 .indicator span {
   display: inline-block;
   flex: 1 1 auto;
-  background: #000;
+  background-color: #8D3DAF;
+  transform: translate(0);
+  opacity: 0.7;
+  transition: transform 0.3s ease-out, opacity 0.9s ease-out;
 }
+
 
 .pads {
   background: lightblue;
